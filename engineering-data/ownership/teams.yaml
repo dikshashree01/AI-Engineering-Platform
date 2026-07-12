@@ -1,0 +1,75 @@
+# Service ownership registry for the AI Engineering Intelligence Platform.
+# Used by the Graph Agent for "Who owns X?" queries.
+# Source: synthetic seed data aligned with docs/system-analysis.md
+
+teams:
+  - id: team:platform
+    name: Platform Engineering
+    slack_channel: "#platform-eng"
+    oncall_rotation: platform-primary
+    owns:
+      - service:edge-router
+      - service:front-end
+      - service:queue-master
+
+  - id: team:catalogue
+    name: Catalogue Team
+    slack_channel: "#team-catalogue"
+    oncall_rotation: catalogue-oncall
+    owns:
+      - service:catalogue
+      - service:catalogue-db
+
+  - id: team:cart-orders
+    name: Cart & Orders Team
+    slack_channel: "#team-orders"
+    oncall_rotation: orders-oncall
+    owns:
+      - service:carts
+      - service:carts-db
+      - service:orders
+      - service:orders-db
+
+  - id: team:payments
+    name: Payments Team
+    slack_channel: "#team-payments"
+    oncall_rotation: payments-oncall
+    owns:
+      - service:payment
+
+  - id: team:identity
+    name: Identity & User Team
+    slack_channel: "#team-identity"
+    oncall_rotation: identity-oncall
+    owns:
+      - service:user
+      - service:user-db
+      - service:session-db
+
+  - id: team:fulfillment
+    name: Fulfillment Team
+    slack_channel: "#team-fulfillment"
+    oncall_rotation: fulfillment-oncall
+    owns:
+      - service:shipping
+      - service:rabbitmq
+
+repositories:
+  - repo:front-end
+    path: source-repo/services/front-end
+    team: team:platform
+  - repo:catalogue
+    path: source-repo/services/catalogue
+    team: team:catalogue
+  - repo:carts
+    path: source-repo/services/carts
+    team: team:cart-orders
+  - repo:orders
+    path: source-repo/services/orders
+    team: team:cart-orders
+  - repo:payment
+    path: source-repo/services/payment
+    team: team:payments
+  - repo:infrastructure
+    path: source-repo/infrastructure/microservices-demo
+    team: team:platform

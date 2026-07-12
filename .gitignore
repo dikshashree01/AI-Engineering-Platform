@@ -1,0 +1,39 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environment & secrets
+.env
+.env.local
+*.pem
+
+# Data stores (local dev volumes)
+.neo4j/
+qdrant_storage/
+data/neo4j/
+data/qdrant/
+
+# Sock Shop clones — use scripts/clone-sock-shop.sh locally
+source-repo/
+
+# IDE & OS
+.cursor/
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# Logs
+*.log
+logs/
+
+# Docker
+docker-compose.override.yml
