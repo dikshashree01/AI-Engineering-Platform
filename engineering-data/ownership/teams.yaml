@@ -55,21 +55,21 @@ teams:
       - service:rabbitmq
 
 repositories:
-  - repo:front-end
-    path: source-repo/services/front-end
+  - repo: front-end
+    path: "source-repo/services/front-end"
     team: team:platform
-  - repo:catalogue
-    path: source-repo/services/catalogue
+  - repo: catalogue
+    path: "source-repo/services/catalogue"
     team: team:catalogue
-  - repo:carts
-    path: source-repo/services/carts
+  - repo: carts
+    path: "source-repo/services/carts"
     team: team:cart-orders
-  - repo:orders
-    path: source-repo/services/orders
+  - repo: orders
+    path: "source-repo/services/orders"
     team: team:cart-orders
-  - repo:payment
-    path: source-repo/services/payment
+  - repo: payment
+    path: "source-repo/services/payment"
     team: team:payments
-  - repo:infrastructure
-    path: source-repo/infrastructure/microservices-demo
+  - repo: infrastructure
+    path: "source-repo/infrastructure/microservices-demo"
     team: team:platform
