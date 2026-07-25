@@ -35,5 +35,8 @@ source-repo/
 *.log
 logs/
 
+# Generated ingestion output
+output/
+
 # Docker
 docker-compose.override.yml
