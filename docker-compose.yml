@@ -1,0 +1,38 @@
+services:
+  neo4j:
+    image: neo4j:5.26-community
+    container_name: ai-platform-neo4j
+    ports:
+      - "7474:7474"   # Browser UI: http://localhost:7474
+      - "7687:7687"   # Bolt protocol (Python driver)
+    environment:
+      NEO4J_AUTH: neo4j/changeme
+      NEO4J_PLUGINS: '["apoc"]'
+      NEO4J_dbms_security_procedures_unrestricted: apoc.*
+    volumes:
+      - neo4j_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:7474 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  qdrant:
+    image: qdrant/qdrant:v1.14.1
+    container_name: ai-platform-qdrant
+    ports:
+      - "6333:6333"   # REST API
+      - "6334:6334"   # gRPC
+    volumes:
+      - qdrant_data:/qdrant/storage
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:6333/healthz || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 15s
+
+volumes:
+  neo4j_data:
+  qdrant_data:

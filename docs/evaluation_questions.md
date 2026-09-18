@@ -3,6 +3,19 @@
 > Day 1, Step 2: Questions the AI engineering platform should eventually answer correctly.
 > These form the initial evaluation dataset for knowledge-base ingestion and retrieval quality.
 
+## Running the evaluation
+
+After Neo4j and Qdrant are running and indexed:
+
+```bash
+python3 -m src.agents.run eval --full
+./scripts/run-eval.sh
+```
+
+Target accuracy: **≥ 90%** across all 22 questions.
+
+---
+
 ## Architecture & Overview
 
 1. Explain the architecture to a new engineer joining the team.
